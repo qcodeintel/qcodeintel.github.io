@@ -410,14 +410,16 @@ function checkForNewPosts() {
                 .all(newThreadIds.map(thread => getLiveTripPostsByThread(qTrip, alreadyCheckedPosts, alreadyParsedPosts, thread, board)))
                 .then(result => {
                     const newPosts = result.reduce((p, e) => p.concat(e), []);
-                    notify(`Found ${newPosts.length} new posts on ${board}`)
+                    notify(`Found ${newPosts.length} new posts on ${board}`);
+                    var audio = new Audio('../audio/alert.mp3');
+                    If ${newPosts.length} >= 1 then audio.play();
                     
                     newPosts.sort((a, b) => b['timestamp'] - a['timestamp']);
                     posts.unshift(...newPosts);
                     postOrder.push(...(newPosts.map(p => (p.timestamp).toString()).reverse()));
                     render(posts);
                     var audio = new Audio('../audio/alert.mp3');
-                    audio.play();
+                    
                     notify(null);
                 });
         });
