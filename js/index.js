@@ -417,9 +417,7 @@ function checkForNewPosts() {
                     newPosts.sort((a, b) => b['timestamp'] - a['timestamp']);
                     posts.unshift(...newPosts);
                     postOrder.push(...(newPosts.map(p => (p.timestamp).toString()).reverse()));
-                    render(posts);
-                    var audio = new Audio('../audio/alert.mp3');
-                    
+                    render(posts);                    
                     notify(null);
                 });
         });
