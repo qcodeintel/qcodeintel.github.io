@@ -1,0 +1,21 @@
+article {
+  position: relative;
+  border-radius: 6px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin: 5px;
+  max-width: 400px;
+}
+article a {
+  text-decoration: none;
+  color: inherit;
+}
+article a:hover {
+  color: #34459d;
+}
+article small {
+  color: #808080;
+  margin-left: 20px;
+  text-align: center;
+  display: block;
+}

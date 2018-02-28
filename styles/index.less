@@ -1,0 +1,241 @@
+@import "icons";
+@import "form";
+
+article {
+  position: relative;
+  border-radius: 6px;
+  background-color: hsl(0, 0%, 95%);
+  padding: 10px;
+  margin: 5px 0 5px 30px;
+  width: 400px;
+
+  time {
+    font-size: smaller;
+    color: hsl(0, 0%, 50%);
+  }
+  header {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      margin-right: 10px;
+      display: inline-block;
+    }
+  }
+  .name {
+    font-weight: bold;
+  }
+  .email {
+    color: hsl(359, 82%, 36%);
+  }
+  .new {
+    font-weight: bold;
+    color: #299e35;
+  }
+  .filename {
+    display: block;
+    font-size: smaller;
+    color: grey;
+  }
+  &.selected {
+    background-color: hsl(208, 70%, 98%);
+    box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2);
+  }
+  > button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+  > blockquote {
+    margin: 0 0 10px;
+    padding: 10px;
+    border: 1px solid hsl(0, 0%, 50%);
+  }
+}
+
+.news {
+  position: relative;
+  background-color: hsl(0, 0%, 95%);
+  padding: 20px;
+  margin: 0 -20px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      color: #34459d;
+    }
+  }
+  small {
+    color: hsl(0, 0%, 50%);
+    margin-left: 20px;
+    text-align: center;
+    display: block;
+  }
+}
+
+q {
+  color: green;
+}
+
+.counter {
+  position: absolute;
+  left: -30px;
+}
+
+.source_4chan_pol {
+  border-left: 4px solid hsl(120, 75%, 80%);
+}
+
+.source_8chan_pol {
+  border-left: 4px solid hsl(240, 75%, 80%);
+}
+
+.source_8chan_cbts {
+  border-left: 4px solid hsl(210, 75%, 80%);
+}
+
+.source_8chan_thestorm {
+  border-left: 4px solid hsl(30, 75%, 80%);
+}
+
+.source_8chan_greatawakening {
+  border-left: 4px solid hsl(0, 75%, 80%);
+}
+
+.source_8chan_qresearch {
+  border-left: 4px solid hsl(60, 75%, 80%);
+}
+
+.deleted {
+  background-color: hsl(0, 50%, 85%);
+}
+
+#fixed-bottom {
+  position: fixed;
+  bottom: 0;
+
+  #notification {
+    padding: 5px 10px;
+    color: white;
+    background-color: hsl(0, 0%, 33%);
+  }
+}
+
+#story {
+  form {
+    background-color: hsl(0, 0%, 90%);
+    padding: 20px;
+    margin: 0 -20px;
+  }
+}
+
+/*
+Answers toggle
+ */
+@media screen and (max-width: 1000px) {
+  .hide-mobile {
+    display: none;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .answers {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  [type=search] {
+    width: 250px;
+  }
+
+  article {
+    width: 295px;
+  }
+}
+
+/*
+Dialog
+ */
+button.close {
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  padding: 3px;
+}
+
+.dialog {
+  display: none;
+
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  box-shadow: 0 0 45px hsla(0, 0%, 0%, 0.9);
+
+  background-color: white;
+
+  &.open, &.opening {
+    display: block;
+  }
+  > * {
+    overflow: auto;
+    width: 100%;
+    max-width: 90vw;
+    max-height: 95vh;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  &.open {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+    & ~ .overlay {
+      display: block;
+    }
+  }
+}
+
+.overlay {
+  display: none;
+  background-image: linear-gradient(to top right, rgba(43, 40, 50, 0.8) 0%, rgba(83, 86, 99, 0.8) 45%, rgba(69, 77, 91, 0.6) 60%);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 99;
+}
+
+.overlay:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1001;
+  background-image: linear-gradient(-19deg, rgba(43, 40, 50, 0.8) 0%, rgba(43, 40, 50, 0.4) 46%, rgba(0, 0, 0, 0.05) 50%);
+  filter: blur(70px);
+}
+
+header iframe {
+  margin-top: -20px;
+}
+.container > * {
+  margin: 0 -20px;
+  padding: 20px;
+}
+
+.EmbeddedTweet {
+  article {
+    padding: 0;
+    margin: 0;
+    width: auto;
+  }
+}
