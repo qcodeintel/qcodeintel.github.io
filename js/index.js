@@ -412,10 +412,6 @@ function checkForNewPosts() {
                     const newPosts = result.reduce((p, e) => p.concat(e), []);
                     notify(`Found ${newPosts.length} new posts on ${board}`);
                     var audio = new Audio('../audio/alert.mp3');
-                    if ( ${newPosts.length} >= 1) {
-                        audio.play();
-                    }
-                    
                     newPosts.sort((a, b) => b['timestamp'] - a['timestamp']);
                     posts.unshift(...newPosts);
                     postOrder.push(...(newPosts.map(p => (p.timestamp).toString()).reverse()));
@@ -425,7 +421,7 @@ function checkForNewPosts() {
         });
     }
 
-    var timerId = setTimeout(checkForNewPosts, 900000);
+    var timerId = setTimeout(checkForNewPosts, 180000);
 
 }
 
